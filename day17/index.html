@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+</head>
+<style>
+    #navbar{
+        display: flex;
+        background-color: yellow;
+        padding: 10px;
+    }
+    #navbar  div {
+        padding: 10px;
+    }
+    #navlist {
+        background-color: aquamarine;
+        padding: 5px;
+    }
+    #hotels_list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;  
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="navbar">
+        <div>Hotel App</div>
+        <input id="query" placeholder="search hotel" type="search" onsearch="mycall()">
+        <a href="login.html"><div id="login">log-in</div></a>
+        <a href="signup.html"><div id="signup">Sign-up</div></a>
+    </div>
+    <div id="navlist">
+        <button id="sort_lth" onclick="sort_lth()">Price Low to High</button>
+        <button id="sort_htl" onclick="sort_htl()">Price High to Low</button>
+        <button id="filter_ac" onclick="filt_ac()">AC</button>
+        <button id="filter_nonac" onclick="filt_nac()">Non AC</button>
+    </div>
+    <div id="hotels_list"><h1>Search Hotels By City</h1></div>
+</body>
+</html>
+<script src="index.js"></script>
