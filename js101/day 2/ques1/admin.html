@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="information">
+        <input type="text" id="name" placeholder="Product Name"><br>
+        <input type="text" id="category" placeholder="Category"><br>
+        <input type="url" id="image" placeholder="Image URL"><br>
+        <input type="number" id="price" placeholder="Price"><br>
+        <select id="gender">
+            <option value="male"> MALE </option>
+            <option value="female"> FEMALE </option>
+        </select> <br>
+        <input type="checkbox" id="sold">
+        <label> sold</label><br>
+        <input type="submit" id="add"><br>
+    </form>
+    <a href="products.html"><button style="background-color: red; padding: 5px 15px;"> cart </button></a>
+</body>
+<script>
+    function makeobj(a, b, c, d, e, f){
+        this.name = a;
+        this.category = b;
+        this.image = c;
+        this.price = d;
+        this.gender = e;
+        this.sold = f;
+    }
+
+    let arr = JSON.parse(localStorage.getItem("products")) || [];
+    let form = document.querySelector("#information");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let a = form.name.value;
+        let b = form.category.value;
+        let c = form.image.value;
+        let d = form.price.value;
+        let e = form.gender.value;
+        let f = form.sold.checked;
+        let obj = new makeobj(a, b, c, d, e, f);
+        arr.push(obj);
+        localStorage.setItem("products", JSON.stringify(arr));
+    })
+</script>
+</html>

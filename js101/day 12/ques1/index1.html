@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0;
+    }
+    #container {
+        display: grid;
+        height: 700px;
+        background-color: rgb(15, 14, 14);
+        color: white;
+        justify-content: center;
+        align-content: center;
+    }
+    #top{
+        display: flex;
+        background-color: rgb(43, 42, 42);
+        color: white;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        width: 100%;
+    }
+    #top1 {
+        padding: 8px;
+        display: flex;
+    }
+    #input {
+        background-color: black;
+        color: azure;
+        padding: 11.5px 9px;
+        font-family: roboto, Noto, sans-serif;
+        font-size: 16px;
+        width: 500px;
+    }
+    #top > img {
+        height: 43px;
+        width: 100px;
+        margin: 10px;
+    }    
+</style>
+<body>
+    <div id="top">
+        <img src="https://w7.pngwing.com/pngs/71/189/png-transparent-vidcon-us-youtube-logo-advertising-television-youtube-television-text-trademark.png">
+        <div id="top1">
+            <input type="text" placeholder="Search" id="input">
+            <div style="background-Color: rgb(73, 73, 73); padding: 13px 23px"><i class="fa fa-search" aria-hidden="true" onclick="getsearch()"></i></div>
+        </div>
+    </div>
+    <div id="container">
+        <iframe width="560" height="315" id="specific" src="https://www.youtube.com/embed/uIKfqQbvV_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> 
+</body>
+</html>
+<script src="index1.js"></script>

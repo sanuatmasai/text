@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            height: 220px;
+            width: 225px;
+            border: solid 1px black;
+            overflow: scroll;
+        }
+        #input {
+            font-size: 18px;
+        }
+        #image {
+            display: flex;
+            border: solid 1px gray;
+            margin-bottom: 15px;
+            background-color: rgb(175, 178, 181);
+        }
+        #bucket {
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <input id="input" oninput="debouncing(main, 1000)" type="text" placeholder="Enter Movie">
+    <div id="container" ></div>
+    <div id="bucket"></div>
+</body>
+</html>
+<script src="index.js"></script>

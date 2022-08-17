@@ -1,0 +1,10 @@
+#top {
+    display : flex;
+    justify-content: space-evenly;
+    background-color: yellow;
+    padding: 20px;
+}
+#content {
+    display: flex;
+    text-align: center;
+}
