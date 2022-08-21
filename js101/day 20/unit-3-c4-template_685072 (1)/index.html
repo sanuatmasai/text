@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News App</title>
+  </head>
+  <link rel="stylesheet" href="index.css">
+  <body>
+    <!-- Give Navbar with id "navbar"  -->
+    <div id="navbar"></div>
+    <!-- Navbar will have input with id search_input and a link to home page i.e. index.html -->
+    <!-- Sidebar will have id "sidebar"  -->
+    <div id="sidebar">
+      <button  id="in" onclick="topp('in')">India</button>
+      <button  id="ch" onclick="topp('ch')">China</button>
+      <button  id="us" onclick="topp('us')">USA</button>
+      <button  id="uk" onclick="topp('uk')">United Kingdom</button>
+      <button  id="nz" onclick="topp('nz')">New Zealand</button>
+    </div>
+    <!-- Give link to top headlines of countries in sidebar with id as their country codes 
+    india :- in
+    china :- ch
+    usa :- us
+    uk : uk
+    Newzeland :- nz -->
+
+    <!-- Append results inside div with id "results"  -->
+    <div id="results" style="margin-left:150px"></div>
+    <!-- News divs will have class "news"  -->
+  </body>
+</html>
+<script type="module">
+  import navbarr from "./components/navbar.js";
+  let container = document.getElementById("navbar");
+  container.innerHTML = navbarr();
+  document.getElementById("search_input").addEventListener("search", () => {
+
+    let query = document.getElementById("search_input").value;
+    get_news(query);
+  })
+
+  let get_news = async (query) => {
+    try{
+      let res = await fetch(`https://masai-api.herokuapp.com/news?q=${query}`);
+      let data = await res.json();
+      let news = data.articles;
+      localStorage.setItem("news",JSON.stringify(news));
+      window.location.href = "search.html";
+    } catch(err) {
+      console.log("Not Found!");
+    }
+  }
+</script>
+<script src="scripts/index.js"></script>

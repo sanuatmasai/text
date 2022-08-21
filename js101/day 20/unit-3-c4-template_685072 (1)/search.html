@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search results</title>
+  </head>
+  <link rel="stylesheet" href="index.css">
+  <body>
+    <!-- Same navbar with same functionality  -->
+    <div id="navbar"></div>
+    <!-- Append results inside div with id "results"  -->
+    <div id="results"></div>
+    <!-- News divs will have class "news"  -->
+  </body>
+</html>
+<script type="module">
+  import navbarr from "./components/navbar.js";
+  let container = document.getElementById("navbar");
+  container.innerHTML = navbarr();
+  document.getElementById("search_input").addEventListener("search", () => {
+
+    let query = document.getElementById("search_input").value;
+    get_news(query);
+  })
+
+  let get_news = async (query) => {
+    try{
+      let res = await fetch(`https://masai-api.herokuapp.com/news?q=${query}`);
+      let data = await res.json();
+      let news = data.articles;
+      localStorage.setItem("news",JSON.stringify(news));
+      window.location.href = "search.html";
+    } catch(err) {
+      console.log("Not Found!");
+    }
+  }
+</script>
+<script src="scripts/search.js"></script>
+
+
+
